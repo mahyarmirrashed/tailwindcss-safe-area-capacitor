@@ -4,7 +4,6 @@
 	"description": "Tailwind CSS safe area helpers",
 	"license": "MIT",
 	"repository": "mahyarmirrashed/tailwindcss-safe-area-capacitor",
-	"funding": "https://github.com/sponsors/mvllow",
 	"author": {
 		"name": "mvllow",
 		"email": "mvllow@icloud.com"
