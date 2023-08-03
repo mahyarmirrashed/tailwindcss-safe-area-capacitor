@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"repository": "mahyarmirrashed/tailwindcss-safe-area-capacitor",
 	"author": {
-		"name": "mvllow",
-		"email": "mvllow@icloud.com"
+		"name": "Mahyar Mirrashed",
+		"email": "mahyarmirrashed@users.noreply.github.com"
 	},
 	"main": "index.js",
 	"scripts": {
