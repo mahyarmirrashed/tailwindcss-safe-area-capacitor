@@ -19,6 +19,7 @@
 	"keywords": [
 		"tailwindcss",
 		"tailwindcss-plugin",
+		"tailwindcss-safe-area-capacitor",
 		"safe-area-inset",
 		"pwa",
 		"margin",
