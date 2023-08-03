@@ -1,11 +1,11 @@
-# tailwindcss-safe-area
+# tailwindcss-safe-area-capacitor
 
-Safe area inset utilities extending margin, padding, and height. The plugin provides base, offset, and or utilities for better adaptability across various scenarios.
+Safe area inset utilities extending margin, padding, and height. The plugin provides base, offset, and or utilities for better adaptability across various scenarios. This is an adaptation of the [tailwindcss-safe-area](https://github.com/mvllow/tailwindcss-safe-area) project that is intended to pair with the [AlwaysLoveme/capacitor-plugin-safe-area](https://github.com/AlwaysLoveme/capacitor-plugin-safe-area) plugin for Capacitor.
 
 ## Getting started
 
 ```sh
-npm install --dev tailwindcss-safe-area
+npm install --dev tailwindcss-safe-area-capacitor
 ```
 
 Then add the plugin to your `tailwind.config.js` file:
@@ -14,7 +14,7 @@ Then add the plugin to your `tailwind.config.js` file:
 // tailwind.config.js
 module.exports = {
 	theme: {},
-	plugins: [require('tailwindcss-safe-area')],
+	plugins: [require('tailwindcss-safe-area-capacitor')],
 }
 ```
 
@@ -60,18 +60,18 @@ The or utilities can be used by appending `-or-{value}` to the base utility. Thi
 
 ## Provided utilities
 
-| Utilities                          | Styles                                                                   |
-| ---------------------------------- | ------------------------------------------------------------------------ |
-| `m-safe, p-safe`                   | `env(safe-area-inset-{top, right, bottom, left})`                        |
-| `mx-safe, px-safe`                 | `env(safe-area-inset-{right, left})`                                     |
-| `my-safe, py-safe`                 | `env(safe-area-inset-{top, bottom})`                                     |
-| `mt-safe, pt-safe`                 | `env(safe-area-inset-top)`                                               |
-| `mr-safe, pr-safe`                 | `env(safe-area-inset-right)`                                             |
-| `mb-safe, pb-safe`                 | `env(safe-area-inset-bottom)`                                            |
-| `ml-safe, pl-safe`                 | `env(safe-area-inset-left)`                                              |
-| `min-h-screen-safe, h-screen-safe` | `calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))`<br>`-webkit-fill-available`                                                 |
-| `*-safe-offset-{value}`            | `calc(env(safe-area-inset-*) + {value})`                                 |
-| `*-safe-or-{value}`                | `max(env(safe-area-inset-*), {value})`                                   |
+| Utilities                          | Styles                                                                                                   |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| `m-safe, p-safe`                   | `var(--safe-area-inset-{top, right, bottom, left})`                                                      |
+| `mx-safe, px-safe`                 | `var(--safe-area-inset-{right, left})`                                                                   |
+| `my-safe, py-safe`                 | `var(--safe-area-inset-{top, bottom})`                                                                   |
+| `mt-safe, pt-safe`                 | `var(--safe-area-inset-top)`                                                                             |
+| `mr-safe, pr-safe`                 | `var(--safe-area-inset-right)`                                                                           |
+| `mb-safe, pb-safe`                 | `var(--safe-area-inset-bottom)`                                                                          |
+| `ml-safe, pl-safe`                 | `var(--safe-area-inset-left)`                                                                            |
+| `min-h-screen-safe, h-screen-safe` | `calc(100vh - (var(--safe-area-inset-top) + var(--safe-area-inset-bottom)))`<br>`-webkit-fill-available` |
+| `*-safe-offset-{value}`            | `calc(var(--safe-area-inset-*) + {value})`                                                               |
+| `*-safe-or-{value}`                | `max(var(--safe-area-inset-*), {value})`                                                                 |
 
 > Tip: To extend html content behind the safe area, set `viewport-fit=cover`
 
@@ -94,7 +94,7 @@ This applies a top padding to the header that is equal to the safe area inset at
 
 ```css
 .pt-safe {
-  padding-top: env(safe-area-inset-top);
+	padding-top: var(--safe-area-inset-top);
 }
 ```
 
@@ -108,7 +108,7 @@ This applies a right padding to the div that is equal to the safe area inset on 
 
 ```css
 .pr-safe-offset-4 {
-  padding-right: calc(env(safe-area-inset-right) + 1rem);
+	padding-right: calc(var(--safe-area-inset-right) + 1rem);
 }
 ```
 
@@ -122,7 +122,7 @@ This applies a bottom padding to the div that is the larger of the safe area ins
 
 ```css
 .pb-safe-or-8 {
-  padding-bottom: max(env(safe-area-inset-bottom), 2rem);
+	padding-bottom: max(var(--safe-area-inset-bottom), 2rem);
 }
 ```
 
@@ -138,17 +138,17 @@ The `h-screen-safe` and `min-h-screen-safe` utilities may not work as expected o
 @tailwind utilities;
 
 @layer base {
-  html {
-    height: -webkit-fill-available;
-  }
+	html {
+		height: -webkit-fill-available;
+	}
 
-  body {
-    height: -webkit-fill-available;
-  }
+	body {
+		height: -webkit-fill-available;
+	}
 
-  /* If using React, set height on the root div as well */
-  #root {
-    height: -webkit-fill-available;
-  }
+	/* If using React, set height on the root div as well */
+	#root {
+		height: -webkit-fill-available;
+	}
 }
 ```
