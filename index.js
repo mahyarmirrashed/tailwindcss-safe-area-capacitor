@@ -54,6 +54,18 @@ const safeArea = plugin(({ addUtilities, matchUtilities, theme }) => {
 		'.pl-safe': {
 			paddingLeft: 'var(--safe-area-inset-left)',
 		},
+		'.top-safe': {
+			top: 'env(safe-area-inset-top)',
+		},
+		'.right-safe': {
+			right: 'env(safe-area-inset-right)',
+		},
+		'.bottom-safe': {
+			bottom: 'env(safe-area-inset-bottom)',
+		},
+		'.left-safe': {
+			left: 'env(safe-area-inset-left)',
+		},
 		'.min-h-screen-safe': {
 			minHeight: [
 				'calc(100vh - (var(--safe-area-inset-top) + var(--safe-area-inset-bottom)))',
