@@ -1,6 +1,6 @@
 {
 	"name": "tailwindcss-safe-area-capacitor",
-	"version": "0.4.0",
+	"version": "0.4.1",
 	"description": "Tailwind CSS safe area helpers for capacitor-plugin-safe-area.",
 	"license": "MIT",
 	"repository": "mahyarmirrashed/tailwindcss-safe-area-capacitor",
