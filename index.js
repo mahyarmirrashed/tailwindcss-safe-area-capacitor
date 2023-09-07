@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin')
 
-const safeArea = plugin(({ addUtilities, matchUtilities, theme }) => {
+const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
 	const baseUtilities = {
 		'.m-safe': {
 			marginTop: 'var(--safe-area-inset-top)',
@@ -55,16 +55,16 @@ const safeArea = plugin(({ addUtilities, matchUtilities, theme }) => {
 			paddingLeft: 'var(--safe-area-inset-left)',
 		},
 		'.top-safe': {
-			top: 'env(safe-area-inset-top)',
+			top: 'var(--safe-area-inset-top)',
 		},
 		'.right-safe': {
-			right: 'env(safe-area-inset-right)',
+			right: 'var(--safe-area-inset-right)',
 		},
 		'.bottom-safe': {
-			bottom: 'env(safe-area-inset-bottom)',
+			bottom: 'var(--safe-area-inset-bottom)',
 		},
 		'.left-safe': {
-			left: 'env(safe-area-inset-left)',
+			left: 'var(--safe-area-inset-left)',
 		},
 		'.min-h-screen-safe': {
 			minHeight: [
