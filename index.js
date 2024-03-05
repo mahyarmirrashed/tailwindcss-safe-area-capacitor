@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin')
 
-const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
+const safeArea = plugin(({ addUtilities, matchUtilities, theme }) => {
 	const baseUtilities = {
 		'.m-safe': {
 			marginTop: 'var(--safe-area-inset-top)',
@@ -74,7 +74,7 @@ const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
 		},
 		'.max-h-screen-safe': {
 			maxHeight: [
-				'calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))',
+				'calc(100vh - (var(--safe-area-inset-top) + var(--safe-area-inset-bottom)))',
 				'-webkit-fill-available',
 			],
 		},
