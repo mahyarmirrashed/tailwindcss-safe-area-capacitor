@@ -72,6 +72,12 @@ const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
 				'-webkit-fill-available',
 			],
 		},
+		'.max-h-screen-safe': {
+			maxHeight: [
+				'calc(100vh - (env(safe-area-inset-top) + env(safe-area-inset-bottom)))',
+				'-webkit-fill-available',
+			],
+		},
 		'.h-screen-safe': {
 			height: [
 				'calc(100vh - (var(--safe-area-inset-top) + var(--safe-area-inset-bottom)))',
@@ -87,7 +93,9 @@ const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
 			accu[`${className}-offset`] = (x) =>
 				Object.entries(propertyValue).reduce((accu, [property, value]) => {
 					if (Array.isArray(value)) {
-						accu[property] = value.map((v, i) => (i ? i : `calc(${v} + ${x})`))
+						accu[property] = value.map((v) =>
+							v === '-webkit-fill-available' ? v : `calc(${v} + ${x})`
+						)
 					} else {
 						accu[property] = `calc(${value} + ${x})`
 					}
@@ -108,7 +116,9 @@ const safeArea = plugin(({addUtilities, matchUtilities, theme}) => {
 			accu[`${className}-or`] = (x) =>
 				Object.entries(propertyValue).reduce((accu, [property, value]) => {
 					if (Array.isArray(value)) {
-						accu[property] = value.map((v, i) => (i ? i : `max(${v}, ${x})`))
+						accu[property] = value.map((v, i) =>
+							v === '-webkit-fill-available' ? v : `max(${v}, ${x})`
+						)
 					} else {
 						accu[property] = `max(${value}, ${x})`
 					}
